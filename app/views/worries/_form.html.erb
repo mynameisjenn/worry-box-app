@@ -1,0 +1,33 @@
+<%= form_with model: @worry, local: true do |form| %>
+ 
+  <% if @worry.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@worry.errors.count, "error") %> prohibited
+        this worry from being saved:
+      </h2>
+      <ul>
+        <% @worry.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+ 
+  <p>
+    <%= form.label :current_worry %><br>
+    <%= form.text_field :current_worry %><br>
+
+    <%= form.label :priority %><br>
+    <%= form.select :integer, [1, 2, 3, 4, 5] %>
+
+    <%= form.label :reflection %><br>
+    <%= form.text_area :reflection %>
+  </p>
+ 
+ 
+  <p>
+    <%= form.submit %>
+  </p>
+ 
+<% end %>
