@@ -7,6 +7,7 @@ class WorriesController < ApplicationController
 
 	def show
 		@worry = Worry.find(params[:id])
+		render 'show.html.erb'
 	end
 
 	def new
@@ -21,7 +22,7 @@ class WorriesController < ApplicationController
 		@worry = Worry.new(worry_params)
 
 		if @worry.save
-			redirect_to @worry
+			redirect_to '/worries/#{params[:id]}'
 		else
 			render 'new'
 		end
@@ -31,7 +32,7 @@ class WorriesController < ApplicationController
 		@worry = Worry.find(params[:id])
 
 		if @worry.update(worry_params)
-			redirect_to @worry
+			redirect_to '/worries'
 		else
 			render 'edit'
 		end 
@@ -41,7 +42,7 @@ class WorriesController < ApplicationController
 		@worry = Worry.find(params[:id])
 		@worry.destroy
 
-		redirect_to worry_path
+		redirect_to worry_path '/worries'
 	end
 
 	private
