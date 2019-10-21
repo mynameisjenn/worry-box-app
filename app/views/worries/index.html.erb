@@ -1,0 +1,7 @@
+<div class="container">
+ <% @worries.each do |worry| %>
+	<p><%= worry.current_worry %></p>
+	<p><%= worry.priority %> </p>
+	<p><%= worry.reflection %></p>
+<% end %>
+</div>
