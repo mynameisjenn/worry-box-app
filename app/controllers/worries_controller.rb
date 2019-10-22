@@ -1,7 +1,7 @@
 class WorriesController < ApplicationController
 
 	def index
-		@worries = Worry.all
+		@worries = Worry.order('priority ASC')
 		render 'index.html.erb'
 	end
 
@@ -42,7 +42,7 @@ class WorriesController < ApplicationController
 		@worry = Worry.find(params[:id])
 		@worry.destroy
 
-		redirect_to worry_path '/worries'
+		redirect_to '/worries'
 	end
 
 	private
