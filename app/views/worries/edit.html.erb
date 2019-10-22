@@ -1,0 +1,10 @@
+<div class="container">
+
+	<%= render 'form' %>
+	<%= link_to 'Back', worries_path %>
+	<%= link_to 'Delete', worry_path(@worry),
+                      method: :delete,
+                      data: { confirm: 'Are you sure?' } %>
+	
+
+</div>

@@ -2,8 +2,8 @@
 
 	<h1>Worries</h1>
 	 <% @worries.each do | worry| %>
-	 
-		<a href= "/worries/<%= worry['id'] %>"><p class="card"><%= worry.current_worry %></p></a>
+
+		<a href= "/worries/<%= worry['id'] %>/edit"><p class="card"><%= worry.current_worry %></p></a>
 		<p>Priority: <%= worry.priority %> </p>
 		<p>Reflection: <%= worry.reflection %></p>
 	<% end %>
